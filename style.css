@@ -1,10 +1,16 @@
 body{
     background-color: #202030;
+    font-family: 'Roboto Mono', monospace;
 }
 
 :root {
   --grid-rows: 1;
   --grid-cols: 1;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
 }
 
 .grid-container {
@@ -14,7 +20,7 @@ body{
   width: 516px;
   height: 516px;
   margin: auto;
-  margin-top: 20vh;
+  margin-top: 14vh;
     border: 1px solid #32324b;
 
 }
@@ -26,6 +32,19 @@ body{
   /* border: 0.1px solid rgb(248, 248, 248); */
 }
 
+.squares-num {
+    font-family: 'Roboto Mono', monospace;
+    margin: auto;
+    margin-top: 3em;
+    background-color: #32324b;
+    color: #fffffc;
+    font-size: 2em;
+    border: none;
+    border-radius: 4px;
+    padding: 16px 42px;
+}
+
 .hover:hover{
     background-color: #fffffc;
 }
+

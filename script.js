@@ -1,4 +1,10 @@
 let gridContainer = document.querySelector(".grid-container");
+let container = document.querySelector(".container");
+let squaresNumBtn = document.createElement("button");
+squaresNumBtn.innerText = "Resolution";
+
+container.appendChild(squaresNumBtn).className = "squares-num";
+
 
 let num;
 
@@ -18,12 +24,11 @@ function askForNum (){
     num = prompt("Write Numbers of Squares"); 
     while (num > 150){
         num = prompt("Sorry, Max Num is 150");
-    }
-    makeRsAndCols(num);
-    
+    } 
 }
 
 
 makeRsAndCols(16)
-askForNum()
+squaresNumBtn.addEventListener("click", askForNum);
+// askForNum()
 
