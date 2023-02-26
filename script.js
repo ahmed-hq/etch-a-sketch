@@ -1,35 +1,39 @@
 let gridContainer = document.querySelector(".grid-container");
 let container = document.querySelector(".container");
+let gridItem = gridContainer.querySelectorAll("div");
+let mouseoverEffect = document.querySelector(".grid-item.mouseover");
 let squaresNumBtn = document.createElement("button");
 squaresNumBtn.innerText = "Resolution";
 
 container.appendChild(squaresNumBtn).className = "squares-num";
+squaresNumBtn.addEventListener("click", askForNum);
 
 
-let num;
-
-
-function makeRsAndCols (num){
-    gridContainer.style.setProperty('--grid-rows', num);
-    gridContainer.style.setProperty('--grid-cols', num);
-    for(let c = 0; c < (num * num); c++){
-        let cell = document.createElement('div');
-        // cell.innerText = (c + 1);
-        gridContainer.appendChild(cell).className = "grid-item hover";
-    };
-};
-
-//number of squares per side 
-function askForNum (){
-    num = prompt("Write Numbers of Squares"); 
-    while (num > 150){
-        num = prompt("Sorry, Max Num is 150");
-    } 
-    while (num === null){num = 16}
+function makeRsAndCols(num) {
+  for (let c = 0; c < num * num; c++) {
+    let cell = document.createElement("div");
+    gridContainer.appendChild(cell);
+  }
+  gridContainer.style.setProperty("--grid-rows", num);
+  gridContainer.style.setProperty("--grid-cols", num);
 }
 
+//number of squares per side
+function askForNum() {
+  let numb = prompt("Write Numbers of Squares");
+  while (numb > 150) {
+    return numb = prompt("Sorry, Max Num is 150");
+  }
+  while (numb === null) {
+    return numb = 16;
+  }
+  makeRsAndCols(numb);
+}
 
-makeRsAndCols(16)
-squaresNumBtn.addEventListener("click", askForNum);
-// askForNum()
+makeRsAndCols(16);
+gridContainer.addEventListener("mouseover", (e) => {
+  e.target.style.backgroundColor= "#fffffc";
+});
 
+// making colored sketch mode
+//making reset button
