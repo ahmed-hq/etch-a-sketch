@@ -18,6 +18,12 @@ function makeRsAndCols(num) {
   gridContainer.style.setProperty("--grid-cols", num);
 }
 
+function reset(){
+  while(gridContainer.firstChild){
+    gridContainer.removeChild(gridContainer.lastChild);
+  }
+}
+
 //number of squares per side
 function askForNum() {
   let numb = prompt("Write Numbers of Squares");
@@ -27,12 +33,13 @@ function askForNum() {
   while (numb === null) {
     return numb = 16;
   }
+  reset()
   makeRsAndCols(numb);
 }
 
 makeRsAndCols(16);
 gridContainer.addEventListener("mouseover", (e) => {
-  e.target.style.backgroundColor= "#fffffc";
+  e.target.classList.add("mouseover");
 });
 
 // making colored sketch mode
