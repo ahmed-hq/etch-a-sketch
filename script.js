@@ -8,7 +8,6 @@ squaresNumBtn.innerText = "Resolution";
 container.appendChild(squaresNumBtn).className = "squares-num";
 squaresNumBtn.addEventListener("click", askForNum);
 
-
 function makeRsAndCols(num) {
   for (let c = 0; c < num * num; c++) {
     let cell = document.createElement("div");
@@ -18,8 +17,8 @@ function makeRsAndCols(num) {
   gridContainer.style.setProperty("--grid-cols", num);
 }
 
-function reset(){
-  while(gridContainer.firstChild){
+function reset() {
+  while (gridContainer.firstChild) {
     gridContainer.removeChild(gridContainer.lastChild);
   }
 }
@@ -27,13 +26,14 @@ function reset(){
 //number of squares per side
 function askForNum() {
   let numb = prompt("Write Numbers of Squares");
-  while (numb > 150) {
-    return numb = prompt("Sorry, Max Num is 150");
-  }
+  do {
+    numb = prompt("Sorry, Max Num is 150");
+  } while (numb > 150);
+  
   while (numb === null) {
-    return numb = 16;
+    return (numb = 16);
   }
-  reset()
+  reset();
   makeRsAndCols(numb);
 }
 
