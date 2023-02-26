@@ -25,6 +25,7 @@ function askForNum (){
     while (num > 150){
         num = prompt("Sorry, Max Num is 150");
     } 
+    while (num === null){num = 16}
 }
 
 
