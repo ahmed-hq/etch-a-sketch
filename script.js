@@ -1,9 +1,9 @@
 let gridContainer = document.querySelector(".grid-container");
 
-let num = 150;
+let num;
 
 
-function makeRsAndCols (){
+function makeRsAndCols (num){
     gridContainer.style.setProperty('--grid-rows', num);
     gridContainer.style.setProperty('--grid-cols', num);
     for(let c = 0; c < (num * num); c++){
@@ -14,9 +14,16 @@ function makeRsAndCols (){
 };
 
 //number of squares per side 
-// function askForNum (num){
-//     let num = prompt("Write Numbers of Squares"); 
-// }
+function askForNum (){
+    num = prompt("Write Numbers of Squares"); 
+    while (num > 150){
+        num = prompt("Sorry, Max Num is 150");
+    }
+    makeRsAndCols(num);
+    
+}
 
-makeRsAndCols();
+
+makeRsAndCols(16)
+askForNum()
 
